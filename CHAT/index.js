@@ -12,12 +12,17 @@ var http       = require('http'),
     helmet     = require("helmet"),
     connection = require("./library/connect-mongo"),
     socket     = require('socket.io'),
-    i18n       = require("i18n")
+    i18n       = require("i18n"),
+    firebase   = require("firebase-admin"),
+    firebaseKeySecret = require("./firebase-key-secret.json")
 
 // Create global app object
 var app = express()
 require('dotenv').config()
 
+firebase.initializeApp({
+    credential: firebase.credential.cert(firebaseKeySecret)
+})
 
 /// my define
 const CONFIG        = require('./config')
@@ -99,4 +104,32 @@ var debug = "debug";
 // // respond with "hello world" when a GET request is made to the homepage
 app.get('/test', function (req, res) {
     res.send('hello world')
+})
+
+app.get('/firebase/notification', (req, res)=>{
+    const firebaseToken = 'c5TwrQawTQOmLonYOtjLIf:APA91bEht8pamauzE7_1zY0TYkp6E24kEKgKAuTVm1gtn9np7U1ffGSYwHuZ01wGU8sBq4uj6Gv_j5OUwcoUQ1GWfXfVghh-jRYFP-I55zw832fjRYBMcN8kD4Zip5yZyQ16izrjKEuJ'
+
+    const payload = {
+        notification: {
+            title: 'Yêu em Hương Xinh đẹp',
+            body: 'Hêlo bé hương cục cưng yêu dấu',
+        }
+    }
+     
+    const options = {
+        priority: 'high',
+        timeToLive: 60 * 60 * 24, // 1 day
+    }
+
+    firebase.messaging().sendToDevice(firebaseToken, payload, options)
+    .then((response) => {
+        // Response is a message ID string.
+        return res.status(200).send("Notification sent successfully"+response)
+    })
+    .catch((error) => {
+        //return error
+        console.log(error);
+        return res.status(200).send("Notification sent fail" + error.message)
+    });
+
 })

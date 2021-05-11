@@ -3,6 +3,7 @@ package com.ebudezain.soy;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -72,6 +73,7 @@ public class LauncherActivity extends AppCompatActivity {
         /// qua màn hình load listview
         Toast.makeText(LauncherActivity.this, "có tokenFirebase" + tokenFirebase, Toast.LENGTH_SHORT)
                 .show();
+        Log.d(TAG, "checkFirebase: " + tokenFirebase);
     }
 
     private void setLogout(){

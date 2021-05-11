@@ -13,3 +13,4 @@
 .externalNativeBuild
 .cxx
 node_modules
+CHAT/firebase-key-secret.json
