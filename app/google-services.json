@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "419928362515",
+    "project_id": "fir-noti-ma-soi",
+    "storage_bucket": "fir-noti-ma-soi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419928362515:android:4ad69a2dfc8eea1847f9e6",
+        "android_client_info": {
+          "package_name": "com.ebudezain.soy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419928362515-fnuu961arv6d6791pg8as9btfjbfne90.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ebudezain.soy",
+            "certificate_hash": "abb4d9c9b88468bab49b90d37a59f5c09b95ef8a"
+          }
+        },
+        {
+          "client_id": "419928362515-k2h5khbetsfnpmfcuckbjfs10imojqoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUIFk1vaUk1wV8RczG_BSiy7y_qYPez84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419928362515-k2h5khbetsfnpmfcuckbjfs10imojqoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
