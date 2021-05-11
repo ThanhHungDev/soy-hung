@@ -1,5 +1,6 @@
 package com.ebudezain.soy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -12,6 +13,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -46,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "login thành công", Toast.LENGTH_SHORT)
                             .show();
                     setLoginRefer();
+                    registerFirebase();
                     /// qua trang view list
                     Intent intent = new Intent(LoginActivity.this, LauncherActivity.class);
                     startActivity(intent);
@@ -67,5 +74,27 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(LauncherActivity.KEY_LOGIN, "access");
         editor.apply();
+    }
+
+    private void registerFirebase(){
+        Intent service = new Intent(this, MyFirebaseService.class);
+        startService(service);
+        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+            @Override
+            public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                if(!task.isSuccessful()) {
+                    return;
+                }
+                // Get new Instance ID token
+                String token = task.getResult().getToken();
+                // cho đúng
+                Toast.makeText(LoginActivity.this, "token của register firebase" + token, Toast.LENGTH_SHORT)
+                        .show();
+                SharedPreferences pref = getApplicationContext().getSharedPreferences(LauncherActivity.PREFS_FIREBASE, MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString(LauncherActivity.KEY_TOKEN_FIREBASE, token);
+                editor.apply();
+            }
+        });
     }
 }

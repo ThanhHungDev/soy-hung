@@ -17,6 +17,9 @@ public class LauncherActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "LOGIN";
     public static final String KEY_LOGIN = "KEY_LOGIN";
 
+    public static final String PREFS_FIREBASE = "FIREBASE";
+    public static final String KEY_TOKEN_FIREBASE = "KEY_TOKEN_FIREBASE";
+
     private Button btnLogout;
     private TextView tvShowStateLogin;
 
@@ -33,9 +36,7 @@ public class LauncherActivity extends AppCompatActivity {
             }
         });
         if( this.checkLogin() ){
-            /// qua màn hình load listview
-            Toast.makeText(LauncherActivity.this, "có access", Toast.LENGTH_SHORT)
-                    .show();
+
             Intent intentLogin = new Intent(this, ConversationsActivity.class);
             startActivity(intentLogin);
         }else{
@@ -52,7 +53,7 @@ public class LauncherActivity extends AppCompatActivity {
         Toast.makeText(LauncherActivity.this, "bạn vừa restart 1 activity", Toast.LENGTH_SHORT)
                 .show();
         if( this.checkLogin() ){
-
+            checkFirebase();
             tvShowStateLogin.setText("đã login rồi");
         }
     }
@@ -64,6 +65,13 @@ public class LauncherActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+    private void checkFirebase(){
+        SharedPreferences prefs = getSharedPreferences(PREFS_FIREBASE, MODE_PRIVATE);
+        String tokenFirebase = prefs.getString(KEY_TOKEN_FIREBASE, "");//"" is the default value.
+        /// qua màn hình load listview
+        Toast.makeText(LauncherActivity.this, "có tokenFirebase" + tokenFirebase, Toast.LENGTH_SHORT)
+                .show();
     }
 
     private void setLogout(){
