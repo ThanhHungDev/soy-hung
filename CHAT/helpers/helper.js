@@ -16,7 +16,7 @@ module.exports.apiResponseIfRequestError = function( req, res ){
             return { error: objKey, ...error }
         })
         response.code    = 422,
-        response.message = "入力エラーがありました"
+        response.message = "đã có lỗi xảy ra"
         response.errors  = errors
         return res.end(JSON.stringify(response))
     }
