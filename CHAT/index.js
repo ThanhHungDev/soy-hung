@@ -44,7 +44,7 @@ const optiswaggerOptionssons = {
             version: '1.0.0',
         },
     },
-    apis: [ "./routes/*.js", "./controllers/*.js", "./models/*.js" ] // files containing annotations as above
+    apis: [ "./routes/*.js", "./controllers/*.js", "./models/*.js", './helpers/*.js' ] // files containing annotations as above
 };
 
 const swaggerDocs = swaggerJsDoc(optiswaggerOptionssons)
