@@ -17,5 +17,9 @@
 	"Access is valid": "Access is valid",
 	"get channel succcess": "get channel succcess",
 	"Refresh is valid": "Refresh is valid",
-	"refresh success": "refresh success"
+	"refresh success": "refresh success",
+	"mongo": {
+		"name_required": "tên phải được required",
+		"name_min_length": "sđsfdsf "
+	}
 }

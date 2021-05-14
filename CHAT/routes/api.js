@@ -5,8 +5,9 @@ const express = require("express")
 const router  = express.Router()
 
 
-const AuthMiddleWare    = require("../middlewares/AuthMiddleware"),
-      GeneralMiddleware = require("../middlewares/GeneralMiddleware")
+const AuthMiddleWare       = require("../middlewares/AuthMiddleware"),
+      GeneralMiddleware    = require("../middlewares/GeneralMiddleware"),
+      RequestApiMiddleware = require("../middlewares/RequestApiMiddleware")
 
 const AuthController     = require("../controllers/AuthController"),
       FriendController   = require("../controllers/FriendController"),
@@ -20,7 +21,10 @@ let initAPIs = app => {
 
     app.use([ GeneralMiddleware.formatJsonApi ])
 
-    router.get("/login", AuthController.login )
+
+    router.post("/register", [ RequestApiMiddleware.REGISTER ], AuthController.register )
+    router.post("/login", [ RequestApiMiddleware.LOGIN ], AuthController.login )
+    router.post("/refreshs", [ RequestApiMiddleware.REFRESH ], AuthController.refreshs )
     
     router.get('/firebase/notification', FirebaseController.firebaseNotification )
 

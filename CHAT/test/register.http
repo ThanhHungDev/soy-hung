@@ -1,0 +1,55 @@
+
+
+POST http://localhost:8081/api/v1/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test thử",
+    "email": "thanhhung.code@gmail.com",
+    "password": "admin123",
+    "confirm": "admin123",
+    "gender": 1
+}
+
+################################
+
+POST http://localhost:8081/api/v1/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "trương thanh hùng",
+    "email": "thanhhung.new2@gmail.com",
+    "password": "admin123",
+    "confirm": "admin123",
+    "gender": 1
+}
+
+################################
+
+
+
+POST http://localhost:8081/api/v1/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "trương thanh hùng",
+    "email": "thanhhung.new@gmail.com",
+    "password": "admin123",
+    "gender": 2
+}
+
+################################
+
+
+POST http://localhost:8081/api/v1/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "trương thanh hùng trương thanh hùng trương thanh hùng trương thanh hùng trương thanh hùng trương thanh hùng",
+    "email": "thanhhung.new@gmail.com",
+    "password": "admin123",
+    "confirm": "admin123",
+    "gender": 3
+}
+
+################################

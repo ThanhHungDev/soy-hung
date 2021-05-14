@@ -1,0 +1,11 @@
+
+
+
+POST http://localhost:8081/api/v1/refreshs HTTP/1.1
+content-type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDlkZDI0MWU3MjhjMDBmNTI3ZmI0ZDUiLCJuYW1lIjoidGVzdCB0aOG7rSIsImVtYWlsIjoidGhhbmhodW5nLmNvZGVAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwidXBkYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwiYXV0aG9yaXphdGlvbiI6InVzZXIiLCJpYXQiOjE2MjA5NjAxODEsImV4cCI6MTYyMTIxOTM4MX0.uAVe3LVZU_5wirAj4mNITM1PfbeemA5mVKymJTPJq8g"
+}
+
+################################

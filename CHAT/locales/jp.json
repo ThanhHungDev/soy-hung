@@ -1,4 +1,8 @@
 {
     "save succcess" : "lưu thành công jp",
-    "login success" : "đăng nhập thành công"
+    "login success" : "đăng nhập thành công",
+    "mongo": {
+		"name_required": "tên phải được required",
+		"name_min_length": "sđsfdsf "
+	}
  }

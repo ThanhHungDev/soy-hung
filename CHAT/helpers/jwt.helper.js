@@ -52,6 +52,7 @@ let verifyTokenRefresh = refresh => {
             if (error) {
                 return reject(error)
             }
+            console.log (decoded)
             resolve(decoded)
         })
     })

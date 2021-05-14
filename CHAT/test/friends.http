@@ -1,0 +1,13 @@
+GET http://localhost:8081/api/v1/friends HTTP/1.1
+x-access-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDlkZDI0MWU3MjhjMDBmNTI3ZmI0ZDUiLCJuYW1lIjoidGVzdCB0aOG7rSIsImVtYWlsIjoidGhhbmhodW5nLmNvZGVAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwidXBkYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwiYXV0aG9yaXphdGlvbiI6InVzZXIiLCJpYXQiOjE2MjA5NjEzMjcsImV4cCI6MTYyMTIyMDUyN30.J_P6VxrkjFkabkl1HAVo9hmW16q2OaBrQF19Cr29JkU
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+################################
+
+
+
+GET http://localhost:8081/api/v1/friends HTTP/1.1
+x-access-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDlkZDI0MWU3MjhjMDBmNTI3ZmI0ZDUiLCJuYW1lIjoidGVzdCB0aOG7rSIsImVtYWlsIjoidGhhbmhodW5nLmNvZGVAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwidXBkYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwiYXV0aG9yaXphdGlvbiI6InVzZXIiLCJpYXQiOjE2MjA5NjEzMjcsImV4cCI6MTYyMDk2NDkyN30.BmGsxMue-ey1rBqQLHqkLm2e7DxLYDVvtvMgnolhs6o
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+################################

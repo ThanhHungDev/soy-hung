@@ -110,5 +110,9 @@ var CONFIG = {
         DEFAULT: 0
     },
     MAX_LENGTH_MESSAGE: 10000,
+    GENDER: {
+        FEMALE: 1, /// nữ
+        MALE: 2, /// nam
+    }
 }
 module.exports = CONFIG;

@@ -1,6 +1,5 @@
-const jwtHelper = require("../helpers/jwt.helper")
-
-const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || "access-token-secret"
+const jwtHelper   = require("../helpers/jwt.helper"),
+      errorHelper = require('../helpers/error.helper')
 
 /**
  * Middleware: Authorization user by Token
@@ -12,29 +11,29 @@ let isAuth = async (req, res, next) => {
     // Lấy token được gửi lên từ phía client, thông thường tốt nhất là các bạn nên truyền token vào header
     const access = req.body.token || req.query.token || req.headers["x-access-token"]
 
-    if (access) {
-        // Nếu tồn tại token access
-        try {
-            // Thực hiện giải mã token xem có hợp lệ hay không?
-            const decoded = await jwtHelper.verifyToken(access, ACCESS_TOKEN_SECRET)
+    if (!access) {
+        /// không tồn tại access token
+        req.errors = { token : {"message":'No token provided.',"rule":"required"} }
+        return errorHelper.apiResponseErrorResource( req, res )
+    }
+    // Nếu tồn tại token access
+    try {
+        // Thực hiện giải mã token xem có hợp lệ hay không?
+        const user = await jwtHelper.verifyTokenAccess(access)
 
-            // Nếu token hợp lệ, lưu thông tin giải mã được vào đối tượng req, dùng cho các xử lý ở phía sau.
-            req.jwtDecoded = decoded;
+        // Nếu token hợp lệ, lưu thông tin giải mã được vào đối tượng req, dùng cho các xử lý ở phía sau.
+        req.jwtUser = user
 
-            // Cho phép req đi tiếp sang controller.
-            next();
-        } catch (error) {
-            // Nếu giải mã gặp lỗi: Không đúng, hết hạn...etc:
-            // debug("Error while verify token:", error);
-            return res.status(401).json({
-                message: 'Unauthorized.',
-            });
+        // Cho phép req đi tiếp sang controller.
+        next();
+    } catch (error) {
+        // Nếu giải mã gặp lỗi: Không đúng, hết hạn...etc:
+        let response = {
+            code: 401,
+            message: 'Unauthorized.',
+            internal_message: error.message
         }
-    } else {
-        // Không tìm thấy token trong request
-        return res.status(403).send({
-            message: 'No token provided.',
-        });
+        return res.status(response.code).json(response)
     }
 }
 
