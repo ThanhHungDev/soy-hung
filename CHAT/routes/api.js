@@ -10,7 +10,7 @@ const AuthMiddleWare       = require("../middlewares/AuthMiddleware"),
       RequestApiMiddleware = require("../middlewares/RequestApiMiddleware")
 
 const AuthController     = require("../controllers/AuthController"),
-      FriendController   = require("../controllers/FriendController"),
+      UserController     = require("../controllers/UserController"),
       FirebaseController = require("../controllers/FirebaseController")
 
 /**
@@ -24,14 +24,14 @@ let initAPIs = app => {
 
     router.post("/register", [ RequestApiMiddleware.REGISTER ], AuthController.register )
     router.post("/login", [ RequestApiMiddleware.LOGIN ], AuthController.login )
-    router.post("/refreshs", [ RequestApiMiddleware.REFRESH ], AuthController.refreshs )
+    router.post("/refresh", [ RequestApiMiddleware.REFRESH ], AuthController.refresh )
     
     router.get('/firebase/notification', FirebaseController.firebaseNotification )
 
     // Sử dụng authMiddleware.isAuth trước những api cần xác thực
     router.use( AuthMiddleWare.isAuth )
     // List Protect APIs:
-    router.get("/friends", FriendController.friendLists )
+    router.get("/users", UserController.users )
 
     return app.use( "/api/v1/", router )
 }

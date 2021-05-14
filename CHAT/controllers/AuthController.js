@@ -86,22 +86,17 @@ let login = async (req, res) => {
 
 /**
  * @swagger
- *  /api/v1/refreshs:
+ *  /api/v1/refresh:
  *      post:
  *          summary: refresh token user với token refresh
  *          description: login với jwt
  *          tags: [ user ]
  *          parameters:
  *              - in: body
- *                name: email
+ *                name: token
  *                schema:
  *                  type: string
- *                  example: jbtruongthanhhung@gmail.com
- *              - in: body
- *                name: password
- *                schema:
- *                  type: string
- *                  example: admin123
+ *                  example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDlkZDI0MWU3MjhjMDBmNTI3ZmI0ZDUiLCJuYW1lIjoidGVzdCB0aOG7rSIsImVtYWlsIjoidGhhbmhodW5nLmNvZGVAZ21haWwuY29tIiwiY3JlYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwidXBkYXRlZEF0IjoiMjAyMS0wNS0xNFQwMToyODozMy4yMjJaIiwiYXV0aG9yaXphdGlvbiI6InVzZXIiLCJpYXQiOjE2MjA5NjAxODEsImV4cCI6MTYyMTIxOTM4MX0.uAVe3LVZU_5wirAj4mNITM1PfbeemA5mVKymJTPJq8g
  *          responses:
  *              200:
  *                  description: lấy access token và refresh token
@@ -128,7 +123,7 @@ let login = async (req, res) => {
  *                                              example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwic2VsZWN0ZWQiOnt9LCJnZXR0ZXJzIjp7fSwiX2lkIjoiNjA5ZGQyNDFlNzI4YzAwZjUyN2ZiNGQ1Iiwid2FzUG9wdWxhdGVkIjpmYWxzZSwiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicGFzc3dvcmQiOiJpbml0IiwiZW1haWwiOiJpbml0IiwibmFtZSI6ImluaXQiLCJfaWQiOiJpbml0IiwiY3JlYXRlZEF0IjoiaW5pdCIsInVwZGF0ZWRBdCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsIm5hbWUiOnRydWUsImVtYWlsIjp0cnVlLCJwYXNzd29yZCI6dHJ1ZSwiY3JlYXRlZEF0Ijp0cnVlLCJ1cGRhdGVkQXQiOnRydWUsIl9fdiI6dHJ1ZX0sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sInBhdGhzVG9TY29wZXMiOnt9LCJjYWNoZWRSZXF1aXJlZCI6e30sIiRzZXRDYWxsZWQiOnt9LCJlbWl0dGVyIjp7Il9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9LCIkb3B0aW9ucyI6eyJza2lwSWQiOnRydWUsImlzTmV3IjpmYWxzZSwid2lsbEluaXQiOnRydWUsImRlZmF1bHRzIjp0cnVlfX0sImlzTmV3IjpmYWxzZSwiJGxvY2FscyI6e30sIiRvcCI6bnVsbCwiX2RvYyI6eyJfaWQiOiI2MDlkZDI0MWU3MjhjMDBmNTI3ZmI0ZDUiLCJuYW1lIjoidGVzdCB0aOG7rSIsImVtYWlsIjoidGhhbmhodW5nLmNvZGVAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkMVZtSkZwWUY0ZVpKOVljZThjUldwZUxoRHVFczBqNFNoa1k3Y0R4MEIyaFJ0N0ZETjVkTUciLCJjcmVhdGVkQXQiOiIyMDIxLTA1LTE0VDAxOjI4OjMzLjIyMloiLCJ1cGRhdGVkQXQiOiIyMDIxLTA1LTE0VDAxOjI4OjMzLjIyMloiLCJfX3YiOjB9LCIkaW5pdCI6dHJ1ZSwiYXV0aG9yaXphdGlvbiI6InVzZXIiLCJpYXQiOjE2MjA5NTkzOTEsImV4cCI6MTYyMTIxODU5MX0.Ui-195Qc_2bCnq1pGA-naeDOUwuLkrbiNa045wfAGvQ
  *                  
 */
-let refreshs = async (req, res) => {
+let refresh = async (req, res) => {
     // User gửi mã refresh token kèm theo trong body
     const { token } = req.body
     let response = {},
@@ -239,6 +234,6 @@ let register = async (req, res) => {
 
 module.exports = {
     login,
-    refreshs,
+    refresh,
     register,
 }
