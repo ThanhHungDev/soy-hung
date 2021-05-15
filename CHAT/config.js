@@ -113,6 +113,10 @@ var CONFIG = {
     GENDER: {
         FEMALE: 1, /// nữ
         MALE: 2, /// nam
+    },
+    SIZES: {
+        icon: [ 100, 200 ],
+        avatar: [ 200, 200 ],
     }
 }
 module.exports = CONFIG;

@@ -1,0 +1,15 @@
+POST /api/v1/avatar HTTP/1.1
+Host: localhost:8081
+Accept: application/json
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="avatar"; filename="1.png"
+Content-Type: image/jpeg
+
+< .\2.jpg
+--MyBoundary
+Content-Disposition: form-data; name="ProspectId"
+
+1
+--MyBoundary--

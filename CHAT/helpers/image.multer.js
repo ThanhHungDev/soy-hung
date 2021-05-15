@@ -14,7 +14,6 @@ const imageStorage = multer.diskStorage({
         // callback(null , file.originalname)// mặc định sẽ save name của hình ảnh 
         fs.stat(UPLOAD_IMAGES_DIR + file.originalname, (err, stats) => {
             let filename
-            console.log(stats)
             if (stats) {
                 filename = Date.now() + '.' + file.originalname
             } else {
