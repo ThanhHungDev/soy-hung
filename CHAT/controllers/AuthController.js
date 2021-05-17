@@ -52,6 +52,7 @@ let login = async (req, res) => {
     let response = {},
         code     = 500
 
+    console.log({email, password}, "login")
 
     try {
         const user = await User.findOne({ email: email })

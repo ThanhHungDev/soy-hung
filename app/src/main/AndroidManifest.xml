@@ -2,12 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ebudezain.soy">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_soy"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher_soy"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar.fullscreen">
         <activity android:name=".ConversationsActivity"></activity>
         <activity android:name=".LoginActivity" />

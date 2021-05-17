@@ -34,8 +34,11 @@ const UserSchema = new Schema(
             type: Number,
             min: 1,
             max: 2,
-        }
-
+        },
+        avatar: {
+            type: String,
+            maxlength: 3000
+        },
     }, {
         timestamps: true
     }
@@ -71,6 +74,10 @@ UserSchema.index({ email: 1}) //Nơi đánh index
  *                      type: int
  *                      description: giới tính, nếu là 1 thì là nữ 2 là nam
  *                      example: 2
+ *                  avatar:
+ *                      type: string
+ *                      description: ảnh đại diện của 1 user, được sử dụng api của multer
+ *                      example: /uploads/images/1.png
  *                  createdAt: 
  *                      type: string
  *                      description: 
@@ -88,6 +95,7 @@ UserSchema.methods.toResources = function() {
         email    : this.email,
         phone    : this.phone,
         gender   : this.gender,
+        avatar   : this.avatar,
         createdAt: this.createdAt,
         updatedAt: this.updatedAt,
     }

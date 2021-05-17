@@ -44,15 +44,21 @@ let initAPIs = app => {
     router.post("/login", [ RequestApiMiddleware.LOGIN ], AuthController.login )
     router.post("/refresh", [ RequestApiMiddleware.REFRESH ], AuthController.refresh )
     
-    router.get('/firebase/notification', FirebaseController.firebaseNotification )
 
     ////////////////////////////////////////////////////////////////////////////
     /////////////////// Route Loged Success Use ////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     // Sử dụng authMiddleware.isAuth trước những api cần xác thực
+    // List Protect APIs:
+    router.get("/users/nologin", UserController.users )
+
     router.use( AuthMiddleWare.isAuth )
     // List Protect APIs:
     router.get("/users", UserController.users )
+
+
+    router.post('/register/notification', FirebaseController.registerNotification )
+    router.get('/firebase/notification', FirebaseController.firebaseNotification )
     ////////////////////////////////////////////////////////////////////////////
     /////////////////// End Route Loged Success Use ////////////////////////////
     ////////////////////////////////////////////////////////////////////////////

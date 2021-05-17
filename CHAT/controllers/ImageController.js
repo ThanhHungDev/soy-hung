@@ -4,7 +4,7 @@ const path  = require('path'),
 
 const imageMulterHelper = require("../helpers/image.multer"),
       CONFIG            = require('../config'),
-      TYPE__FILL        = "fill"
+      imageRouteHelper  = require('../helpers/image.generate.route')
 /**
  * @swagger
  *  /api/v1/avatar:
@@ -53,7 +53,9 @@ let uploadAvatar = async (req, res) => {
     if( file ){
         response.code = 200
     }
-    response.data    = imageMulterHelper.toResources(file)
+    const imgResource = imageMulterHelper.toResources(file)
+    response.data    = imgResource
+    response.resize  = imageRouteHelper.generateUrlImageResize(imgResource.url, 'avatar', CONFIG.IMAGE_TYPE.fit)
     response.message = response.internal_message = "thành công"
     return res.status(response.code).json(response)
 }
@@ -82,7 +84,8 @@ let resize = async (req, res) => {
     /// nếu file không tồn tại thì trả về 404
     try {
         /// file tồn tại trong hệ thống
-        const savedPath = path.join(__dirname, '../public/resizes/' + size + '/' + type + '/' + imagePath )
+        const urlResize = imageRouteHelper.generateUrlImageResize(imagePath, size, type)
+        const savedPath = path.join(__dirname, '../public' + urlResize )
         const savedDir  = path.dirname(savedPath) // .split(path.sep).pop()
         
         if( !fs.existsSync(imageFullPath) || typeof sizes[size] != 'object' ) {
@@ -99,7 +102,7 @@ let resize = async (req, res) => {
         let optionsResizes = {
             fit: sharp.fit.cover
         }
-        if( type == TYPE__FILL ){
+        if( type == CONFIG.IMAGE_TYPE.fill ){
             optionsResizes = { 
                 fit: sharp.fit.contain,
                 background: { r: 255, g: 255, b: 255 }

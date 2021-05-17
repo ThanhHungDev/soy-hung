@@ -11,3 +11,16 @@ content-type: application/json
 }
 
 ################################
+
+
+
+
+POST /api/v1/login HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+{
+    "email": "thanhhung.cod@gmail.com"
+}
+
+################################

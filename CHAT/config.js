@@ -117,6 +117,10 @@ var CONFIG = {
     SIZES: {
         icon: [ 100, 200 ],
         avatar: [ 200, 200 ],
+    },
+    IMAGE_TYPE: {
+        fill: 'fill',
+        fit: 'fit'
     }
 }
 module.exports = CONFIG;
