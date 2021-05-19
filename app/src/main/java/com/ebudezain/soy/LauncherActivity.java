@@ -38,7 +38,7 @@ public class LauncherActivity extends AppCompatActivity {
         });
         if( this.checkLogin() ){
 
-            Intent intentLogin = new Intent(this, ConversationsActivity.class);
+            Intent intentLogin = new Intent(this, DashboardActivity.class);
             startActivity(intentLogin);
         }else{
             /// qua màn hình login

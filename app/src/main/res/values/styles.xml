@@ -15,6 +15,13 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">#121221</item>
+    </style>
+    <style name="Theme.AppCompat.Light.NoActionBar.colorBlueDark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

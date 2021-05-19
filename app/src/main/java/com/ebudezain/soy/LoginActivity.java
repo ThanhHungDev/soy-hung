@@ -25,9 +25,11 @@ import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Map;
 
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -77,12 +79,11 @@ public class LoginActivity extends AppCompatActivity {
                 .enqueue(new Callback<ResponseGeneral>() {
                     @Override
                     public void onResponse(Call<ResponseGeneral> call, Response<ResponseGeneral> response) {
-                        ResponseGeneral res = response.body();
-                        // cho đúng
-                        Log.d(TAG, "success : " + response.body().getCode());
-                        /// check success
-                        if( res != null && res.getCode() == 200 ){
-                            // cho đúng
+
+                        if(response.body() != null) {
+                            Log.d(TAG, "response.body() : " + response.body().toString());
+                            ResponseGeneral res = response.body();
+                            /// thành công
                             Toast.makeText(LoginActivity.this, "login thành công", Toast.LENGTH_SHORT)
                                     .show();
                             setLoginRefer(res.getData().getAccess());
@@ -92,26 +93,35 @@ public class LoginActivity extends AppCompatActivity {
                             /// qua trang view list
                             Intent intent = new Intent(LoginActivity.this, LauncherActivity.class);
                             startActivity(intent);
-
-                        }else{
-                            ErrorResource err = res.getErrors().get(0);
-                            Log.d(TAG, "err 0: " + err.getMessage());
-                            /// cho sai thì không làm gì cả
-                            Toast.makeText(LoginActivity.this, "login thất bại null hoặc code", Toast.LENGTH_LONG)
-                                    .show();
+                        } else if(response.errorBody() != null){
+                            ResponseBody res = response.errorBody();
+                            try {
+                                Log.d(TAG, "err : " + res.string());
+                                /// cho sai thì không làm gì cả
+                                Toast.makeText(LoginActivity.this, "login thất bại", Toast.LENGTH_LONG)
+                                        .show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
+
                         btnLogin.setEnabled(true);
-                        //// set text null submit
-                        editEmail.setText("");
-                        editPassword.setText("");
+                        // set text null submit
+                        // editEmail.setText("");
+                        // editPassword.setText("");
+                        // Clear the second EditText
+                        editEmail.getText().clear();
+                        editEmail.clearFocus();
+                        editPassword.getText().clear();
+                        editPassword.clearFocus();
                     }
 
                     @Override
                     public void onFailure(Call<ResponseGeneral> call, Throwable t) {
                         /// cho sai thì không làm gì cả
-                        Toast.makeText(LoginActivity.this, "login thất bại" + t.getMessage(), Toast.LENGTH_LONG)
+                        Toast.makeText(LoginActivity.this, "call api thất bại " + t.getMessage(), Toast.LENGTH_LONG)
                                 .show();
-                        Log.d(TAG, "onFailure: " + "login thất bại" + t.getMessage());
+                        Log.d(TAG, "onFailure: " + "call api thất bại " + t.getMessage());
                         btnLogin.setEnabled(true);
                         //// set text null submit
                         editEmail.setText("");

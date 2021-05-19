@@ -1,5 +1,7 @@
 package com.ebudezain.soy.models;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 
 public class ResponseGeneral {
@@ -56,5 +58,11 @@ public class ResponseGeneral {
 
     public void setErrors(ArrayList<ErrorResource> errors) {
         this.errors = errors;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "code : "+ code + " message: " + message;
     }
 }

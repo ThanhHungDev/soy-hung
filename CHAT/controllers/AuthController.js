@@ -52,8 +52,6 @@ let login = async (req, res) => {
     let response = {},
         code     = 500
 
-    console.log({email, password}, "login")
-
     try {
         const user = await User.findOne({ email: email })
         if(!user){
@@ -68,19 +66,23 @@ let login = async (req, res) => {
             throw new Error("Invalid Credentials")
         }
 
-        const access = jwtHelper.generateTokenAccess( user.toResources() )
+        const access  = jwtHelper.generateTokenAccess( user.toResources() )
         const refresh = jwtHelper.generateTokenRefresh( user.toResources() )
 
         /// response 
-        response.code    = 200
-        response.data    = { access, refresh }
-        response.message = response.internal_message = "Login Successful"
+        response.code             = 200
+        response.data             = { access, refresh }
+        response.message          = "Login Successful"
+        response.internal_message = "Login Successful"
         return res.status(response.code).json(response)
 
     } catch (error) {
 
-        response.code    = code || 500
-        response.message = response.internal_message = error.message
+        let err = { error: 'error', message: error.message }
+        response.code             = code || 500
+        response.message          = error.message
+        response.internal_message = error.message
+        response.errors           = [ err ]
         return res.status(response.code).json(response)
     }
 }

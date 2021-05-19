@@ -18,7 +18,7 @@ module.exports.apiResponseIfRequestError = function( req, res ){
         response.code    = 422,
         response.message = "đã có lỗi xảy ra"
         response.errors  = errors
-        return res.end(JSON.stringify(response))
+        return res.status(response.code).json(response)
     }
 }
 
@@ -37,7 +37,7 @@ module.exports.apiResponseErrorResource = function( req, res ){
         response.code    = 422,
         response.message = "đã có lỗi xảy ra"
         response.errors  = errors
-        return res.end(JSON.stringify(response))
+        return res.status(response.code).json(response)
     }
 }
 

@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="@+id/tvWellcomeLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="nhập email"
+        android:hint="nhập email ahihi vscode"
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
