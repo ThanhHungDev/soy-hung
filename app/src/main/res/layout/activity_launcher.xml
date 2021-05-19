@@ -5,11 +5,22 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ImageView
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/bg_dashboard"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <TextView
         android:textSize="20sp"
         android:id="@+id/tvWellcome"
         android:layout_centerInParent="true"
         android:text="@string/m_n_h_nh_ch_nh_khi_ch_a_login"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textAllCaps="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
