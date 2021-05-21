@@ -13,6 +13,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_in);
         setContentView(R.layout.activity_register);
 
         btnGotoLogin = (Button) findViewById(R.id.btnGotoLogin);

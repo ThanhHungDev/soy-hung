@@ -49,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         /// cho sai thì không làm gì cả
+        overridePendingTransition(R.anim.fade_in, R.anim.slide_out_left);
+
         Toast.makeText(LoginActivity.this, "login onCreate", Toast.LENGTH_LONG)
                 .show();
         setContentView(R.layout.activity_login);
