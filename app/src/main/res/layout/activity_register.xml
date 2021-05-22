@@ -28,7 +28,7 @@
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="30dp"
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/transparent"
                 app:cardCornerRadius="12dp"
@@ -49,7 +49,7 @@
             <TextView
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/cvWrapper"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:textSize="30sp"
                 android:id="@+id/tvWellcomeLogin"
                 android:text="màn hình đăng ký"
@@ -64,7 +64,7 @@
 
             <EditText
                 android:id="@+id/edtName"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_centerHorizontal="true"
@@ -80,7 +80,7 @@
 
             <EditText
                 android:id="@+id/edtEmail"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_centerHorizontal="true"
@@ -95,7 +95,7 @@
 
             <EditText
                 android:id="@+id/edtPassword"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_centerHorizontal="true"
@@ -110,7 +110,7 @@
 
             <EditText
                 android:id="@+id/edtConfirm"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_centerHorizontal="true"
@@ -127,7 +127,7 @@
                 android:id="@+id/radioGroup_character"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 android:orientation="horizontal"
