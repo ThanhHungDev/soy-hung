@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = DashboardActivity.class.getSimpleName();
 
@@ -26,31 +26,31 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         initView();
-        initEvent();
+//        initEvent();
     }
 
     private void initView(){
         btnIconLoadingImgCircle = (CardView) findViewById(R.id.btnIconLoadingImgCircle);
+        btnIconLoadingImgCircle.setOnClickListener(this);
         btnIconLoadingIdFirebase = (CardView) findViewById(R.id.btnIconLoadingIdFirebase);
+        btnIconLoadingIdFirebase.setOnClickListener(this);
     }
-    private void initEvent(){
-        btnIconLoadingImgCircle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.btnIconLoadingImgCircle: {
                 Intent intent = new Intent(DashboardActivity.this, IconActivity.class);
                 startActivity(intent);
-//                startActivityForResult(intent, REQUEST_CODE_ICON);
+                break;
             }
-        });
-
-        btnIconLoadingIdFirebase.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, IconActivity.class);
+            case R.id.btnIconLoadingIdFirebase: {
+                Intent intent = new Intent(DashboardActivity.this, SpinActivity.class);
                 startActivity(intent);
-//                startActivityForResult(intent, REQUEST_CODE_ICON);
+                break;
             }
-        });
+        }
     }
 }

@@ -42,6 +42,7 @@ let registerNotification = async (req, res) => {
     /// phương thức này giống với refresh token dùng để thay thế token access mới thành 1 token có tham số access
     // User gửi mã refresh token kèm theo trong body
     const { token, device } = req.body
+        
     let response = {},
         code     = 500
 

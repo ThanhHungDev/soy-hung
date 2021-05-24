@@ -8,7 +8,7 @@
     <ImageView
         android:alpha="0.4"
         android:layout_centerInParent="true"
-        android:src="@drawable/register"
+        android:src="@drawable/bg_register"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,8 +70,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/tvWellcomeLogin"
                 android:hint="nhập tên"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:inputType="textPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,8 +86,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/edtName"
                 android:hint="nhập email"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,8 +101,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/edtEmail"
                 android:hint="nhập password"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,8 +116,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/edtPassword"
                 android:hint="nhập lại password"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,19 +136,22 @@
                 android:layout_below="@+id/edtConfirm">
 
                 <RadioButton
-                    android:id="@+id/radioButton_male"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#fff"
-                    android:text="nữ" />
-
-                <RadioButton
                     android:id="@+id/radioButton_female"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#fff"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="nữ"
+                    android:tag="1"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton_male"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:tag="2"
                     android:text="Nam" />
             </RadioGroup>
 

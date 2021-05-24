@@ -9,7 +9,7 @@ const jwtHelper   = require("../helpers/jwt.helper"),
  */
 let isAuth = async (req, res, next) => {
     // Lấy token được gửi lên từ phía client, thông thường tốt nhất là các bạn nên truyền token vào header
-    const access = req.body.token || req.query.token || req.headers["x-access-token"]
+    const access =  req.headers["x-access-token"] || req.query.token || req.body.token
 
     if (!access) {
         /// không tồn tại access token

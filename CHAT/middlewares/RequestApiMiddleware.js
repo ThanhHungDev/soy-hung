@@ -106,9 +106,49 @@ let REFRESH = async function( req, res, next ){
 }
 
 
+let REGISTER_NOTIFY = async function( req, res, next ){
+    
+    let validate = new Validator(req.body, {
+        token   : "required|minLength:20|maxLength:3000",
+        device : "required"
+    },{
+        'token.required'    : ":attribute is required",
+        'token.minLength'   : ":attribute min length :arg0",
+        'token.maxLength'   : ":attribute max length :arg0",
+    });
+     
+    let matched = await validate.check()
+    if (!matched) {
+        req.errors = validate.errors
+        return errorHelper.apiResponseErrorResource( req, res )
+    }
+    next()
+}
+let SEND_NOTIFY = async function( req, res, next ){
+    
+    let validate = new Validator(req.body, {
+        token   : "required|minLength:20|maxLength:3000",
+        device : "required"
+    },{
+        'token.required'    : ":attribute is required",
+        'token.minLength'   : ":attribute min length :arg0",
+        'token.maxLength'   : ":attribute max length :arg0",
+    });
+     
+    let matched = await validate.check()
+    if (!matched) {
+        req.errors = validate.errors
+        return errorHelper.apiResponseErrorResource( req, res )
+    }
+    next()
+}
+
+
 
 module.exports = {
     REGISTER,
     LOGIN,
     REFRESH,
+    REGISTER_NOTIFY,
+    SEND_NOTIFY,
 }

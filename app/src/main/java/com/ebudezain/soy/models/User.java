@@ -2,23 +2,32 @@ package com.ebudezain.soy.models;
 
 public class User {
 
-    private int _id;
+    private String _id;
     private String name;
     private String email;
     private int gender;
+    private String avatar;
 
-    public User(int _id, String name, String email, int gender) {
+    public User(String _id, String name, String email, int gender, String avatar) {
+        this._id = _id;
+        this.name = name;
+        this.email = email;
+        this.gender = gender;
+        this.avatar = avatar;
+    }
+
+    public User(String _id, String name, String email, int gender) {
         this._id = _id;
         this.name = name;
         this.email = email;
         this.gender = gender;
     }
 
-    public int getId() {
+    public String getId() {
         return _id;
     }
 
-    public void setId(int _id) {
+    public void setId(String _id) {
         this._id = _id;
     }
 
@@ -44,5 +53,13 @@ public class User {
 
     public void setGender(int gender) {
         this.gender = gender;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

@@ -55,4 +55,7 @@ dependencies {
 
     // hiện thị avatar
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    /// hiện thị spin loading
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 }

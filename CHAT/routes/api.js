@@ -57,8 +57,8 @@ let initAPIs = app => {
     router.get("/users", UserController.users )
 
 
-    router.post('/register/notification', FirebaseController.registerNotification )
-    router.get('/firebase/notification', FirebaseController.firebaseNotification )
+    router.post('/register/notification', [ RequestApiMiddleware.REGISTER_NOTIFY ], FirebaseController.registerNotification )
+    router.get('/firebase/notification', [ RequestApiMiddleware.SEND_NOTIFY ], FirebaseController.firebaseNotification )
     ////////////////////////////////////////////////////////////////////////////
     /////////////////// End Route Loged Success Use ////////////////////////////
     ////////////////////////////////////////////////////////////////////////////

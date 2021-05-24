@@ -15,10 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LauncherActivity extends AppCompatActivity {
 
     public static final String TAG = LauncherActivity.class.getSimpleName();
-    public static final String PREFS_NAME = "LOGIN";
+    public static final String PREFS_LOGIN = "LOGIN";
+    public static final String KEY_REFRESH = "KEY_REFRESH";
     public static final String KEY_LOGIN = "KEY_LOGIN";
-
-    public static final String PREFS_FIREBASE = "FIREBASE";
     public static final String KEY_TOKEN_FIREBASE = "KEY_TOKEN_FIREBASE";
 
     private Button btnLogout;
@@ -60,15 +59,21 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     private boolean checkLogin(){
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        String access = prefs.getString(KEY_LOGIN, "");//"" is the default value.
+        Log.d(TAG, "checkLogin a " + LoginActivity.ACCESS + " re " + LoginActivity.REFRESH + " r " + LoginActivity.FIREBASE_ID);
+        SharedPreferences prefs = getSharedPreferences(PREFS_LOGIN, MODE_PRIVATE);
+        String access = prefs.getString(LauncherActivity.KEY_LOGIN, "");//"" is the default value.
+        String refresh = prefs.getString(LauncherActivity.KEY_REFRESH, "");//"" is the default value.
+        String firebase = prefs.getString(LauncherActivity.KEY_TOKEN_FIREBASE, "");//"" is the default value.
+        Log.d(TAG, "checkLogin 2 aaccess " + access + " refresh " + refresh + " firebase " + firebase);
         if( !access.equals("") ){
+            Log.d(TAG, "checkLogin: đúng" + access);
             return true;
         }
+        Log.d(TAG, "checkLogin: sai" + access);
         return false;
     }
     private void checkFirebase(){
-        SharedPreferences prefs = getSharedPreferences(PREFS_FIREBASE, MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(PREFS_LOGIN, MODE_PRIVATE);
         String tokenFirebase = prefs.getString(KEY_TOKEN_FIREBASE, "");//"" is the default value.
         /// qua màn hình load listview
         Toast.makeText(LauncherActivity.this, "có tokenFirebase" + tokenFirebase, Toast.LENGTH_SHORT)
@@ -77,9 +82,11 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     private void setLogout(){
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(LauncherActivity.PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(LauncherActivity.PREFS_LOGIN, MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.remove(LauncherActivity.KEY_LOGIN);
+        editor.remove(LauncherActivity.KEY_TOKEN_FIREBASE);
+        editor.remove(LauncherActivity.KEY_REFRESH);
         editor.apply();
         Toast.makeText(LauncherActivity.this, "đã logout", Toast.LENGTH_SHORT)
                 .show();
