@@ -2,10 +2,13 @@ package com.ebudezain.soy.apis;
 
 import com.ebudezain.soy.config.constant;
 import com.ebudezain.soy.models.ResponseGeneral;
+import com.ebudezain.soy.models.ResponseListUser;
 import com.ebudezain.soy.models.ResponseNotificationGeneral;
 import com.ebudezain.soy.models.ResponseRegisterUser;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.json.JSONObject;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -13,9 +16,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -38,5 +43,6 @@ public interface ApiService {
 
     @POST("/api/v1/register/notification")
     Call<ResponseNotificationGeneral> storeFirebaseId(@Body RequestBody params, @Header("x-access-token") String access);
+
 
 }

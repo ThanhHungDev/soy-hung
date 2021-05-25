@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SpinActivity"></activity>
+        <activity android:name=".ListUserActivity"></activity>
+        <activity android:name=".SpinActivity" />
         <activity android:name=".SendNotificationActivity" />
         <activity android:name=".IconActivity" />
         <activity android:name=".RegisterActivity" />

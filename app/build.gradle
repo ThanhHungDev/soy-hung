@@ -58,4 +58,7 @@ dependencies {
 
     /// hiện thị spin loading
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    ///
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
 }

@@ -8,7 +8,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+
+import java.io.IOException;
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,10 +25,15 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     CardView btnIconLoadingImgCircle = null;
     CardView btnIconLoadingIdFirebase = null;
+    CardView btnRecycleView = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        Glide.with(this)
+                .load(R.drawable.screen)
+                .into((ImageView) findViewById(R.id.imgGif));
 
         initView();
 //        initEvent();
@@ -34,6 +44,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         btnIconLoadingImgCircle.setOnClickListener(this);
         btnIconLoadingIdFirebase = (CardView) findViewById(R.id.btnIconLoadingIdFirebase);
         btnIconLoadingIdFirebase.setOnClickListener(this);
+        btnRecycleView = (CardView) findViewById(R.id.btnRecycleView);
+        btnRecycleView.setOnClickListener(this);
     }
 
 
@@ -48,6 +60,11 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             }
             case R.id.btnIconLoadingIdFirebase: {
                 Intent intent = new Intent(DashboardActivity.this, SpinActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnRecycleView: {
+                Intent intent = new Intent(DashboardActivity.this, ListUserActivity.class);
                 startActivity(intent);
                 break;
             }

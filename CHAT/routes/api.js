@@ -51,10 +51,12 @@ let initAPIs = app => {
     // Sử dụng authMiddleware.isAuth trước những api cần xác thực
     // List Protect APIs:
     router.get("/users/nologin", UserController.users )
+    
 
     router.use( AuthMiddleWare.isAuth )
     // List Protect APIs:
     router.get("/users", UserController.users )
+    router.post("/users", UserController.users )
 
 
     router.post('/register/notification', [ RequestApiMiddleware.REGISTER_NOTIFY ], FirebaseController.registerNotification )

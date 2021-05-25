@@ -95,7 +95,7 @@ UserSchema.methods.toResources = function() {
         email    : this.email,
         phone    : this.phone,
         gender   : this.gender,
-        avatar   : this.avatar,
+        avatar   : this.avatar ? this.avatar : "/uploads/images/abt-1.jpg",
         createdAt: this.createdAt,
         updatedAt: this.updatedAt,
     }
