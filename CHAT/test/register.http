@@ -19,8 +19,8 @@ Host: localhost:8081
 content-type: application/json
 
 {
-    "name": "trương thanh hùng",
-    "email": "thanhhung.new2@gmail.com",
+    "name": "trươns hùng ",
+    "email": "thancfshhgsdfsdf33@gmail.com",
     "password": "admin123",
     "confirm": "admin123",
     "gender": 1
