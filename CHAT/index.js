@@ -44,7 +44,12 @@ const optiswaggerOptionssons = {
             version: '1.0.0',
         },
     },
-    apis: [ "./routes/*.js", "./controllers/*.js", "./models/*.js", './helpers/*.js' ] // files containing annotations as above
+    apis: [ 
+        "./routes/*.js", 
+        "./controllers/*.js", 
+        "./models/*.js", 
+        './helpers/*.js' 
+    ] // files containing annotations as above
 };
 
 const swaggerDocs = swaggerJsDoc(optiswaggerOptionssons)
@@ -95,21 +100,18 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 
 /// listener server
-const options = {
-    key: fs.readFileSync(path.join(__dirname, 'create-ssl/server.key')),
-    cert: fs.readFileSync(path.join(__dirname, 'create-ssl/server.crt'))
-};
 var server = null
 if(PORT == 443){
+    const options = {
+        key: fs.readFileSync(path.join(__dirname, 'create-ssl/server.key')),
+        cert: fs.readFileSync(path.join(__dirname, 'create-ssl/server.crt'))
+    }
     server = http.createServer(options, app)
 }else{
     server = http.createServer(app)
 }
-
-const allowedOrigins = CONFIG.CORS_IO 
-const io     = socket(server,{
-    origins: allowedOrigins
-})
+ 
+const io = socket(server,{ origins: CONFIG.CORS_IO })
 server.listen(PORT,  () => {
 
     console.log(`server run: ${DOMAIN}`)  
@@ -124,6 +126,6 @@ initAPIs(app)
 initWEBs(app)
 
 // // respond with "hello world" when a GET request is made to the homepage
-app.get('/test', function (req, res) {
+app.get('/', function (req, res) {
     res.send('hello world')
 })

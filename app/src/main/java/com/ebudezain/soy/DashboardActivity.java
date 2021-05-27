@@ -26,6 +26,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     CardView btnIconLoadingImgCircle = null;
     CardView btnIconLoadingIdFirebase = null;
     CardView btnRecycleView = null;
+    CardView btnBottomNavi = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         btnIconLoadingIdFirebase.setOnClickListener(this);
         btnRecycleView = (CardView) findViewById(R.id.btnRecycleView);
         btnRecycleView.setOnClickListener(this);
+        btnBottomNavi = (CardView) findViewById(R.id.btnBottomNavi);
+        btnBottomNavi.setOnClickListener(this);
+
     }
 
 
@@ -65,6 +69,11 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             }
             case R.id.btnRecycleView: {
                 Intent intent = new Intent(DashboardActivity.this, ListUserActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnBottomNavi: {
+                Intent intent = new Intent(DashboardActivity.this, BottomNaviActivity.class);
                 startActivity(intent);
                 break;
             }
