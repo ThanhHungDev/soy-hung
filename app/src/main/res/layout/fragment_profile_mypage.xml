@@ -7,7 +7,7 @@
     <ImageView
         android:alpha="0.4"
         android:layout_centerInParent="true"
-        android:src="@drawable/bg_login_x"
+        android:src="@drawable/bg_register"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
