@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.ebudezain.soy.Activity.BotNaviActivity;
 
 import java.io.IOException;
 
@@ -27,6 +28,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     CardView btnIconLoadingIdFirebase = null;
     CardView btnRecycleView = null;
     CardView btnBottomNavi = null;
+    CardView btnViewPager = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         btnRecycleView.setOnClickListener(this);
         btnBottomNavi = (CardView) findViewById(R.id.btnBottomNavi);
         btnBottomNavi.setOnClickListener(this);
+        btnViewPager = (CardView) findViewById(R.id.viewPager);
+        btnViewPager.setOnClickListener(this);
 
     }
 
@@ -74,6 +79,11 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             }
             case R.id.btnBottomNavi: {
                 Intent intent = new Intent(DashboardActivity.this, BottomNaviActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.viewPager: {
+                Intent intent = new Intent(DashboardActivity.this, BotNaviActivity.class);
                 startActivity(intent);
                 break;
             }

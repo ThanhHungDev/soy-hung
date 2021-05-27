@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemBotNaviHomeMypage"
+        android:icon="@drawable/outline_home_black_18"
+        android:title="@string/action_home"
+        />
+    <item
+        android:icon="@drawable/outline_mark_chat_read_black_18"
+        android:id="@+id/itemBotNaviProfileMypage"
+        android:title="@string/action_profile"/>
+
+    <item
+        android:icon="@drawable/outline_account_box_black_18"
+        android:id="@+id/itemBotNaviMessageMypage"
+        android:title="@string/action_message"/>
+
+
+</menu>
