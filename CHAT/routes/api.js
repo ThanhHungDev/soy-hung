@@ -16,7 +16,9 @@ const AuthController     = require("../controllers/AuthController"),
       UserController     = require("../controllers/UserController"),
       FirebaseController = require("../controllers/FirebaseController"),
       ImageController    = require("../controllers/ImageController"),
-      FileController     = require("../controllers/FileController")
+      FileController     = require("../controllers/FileController"),
+      CrawlerController  = require("../controllers/CrawlerController"),
+      QuestionController  = require("../controllers/QuestionController")
 
 /**
  * Init all APIs on your application
@@ -51,6 +53,9 @@ let initAPIs = app => {
     // Sử dụng authMiddleware.isAuth trước những api cần xác thực
     // List Protect APIs:
     router.get("/users/nologin", UserController.users )
+    router.get("/crawler/ahaquiz", CrawlerController.crawlerAhaquiz )
+    router.get("/crawler/questions/image", CrawlerController.cloneImage )
+    router.get("/questions", QuestionController.questions )
     
 
     router.use( AuthMiddleWare.isAuth )

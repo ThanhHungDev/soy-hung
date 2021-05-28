@@ -17,3 +17,5 @@ CHAT/firebase-key-secret.json
 CHAT/.env
 CHAT/public/uploads
 /CHAT/public/resizes
+
+/CHAT/public/images
