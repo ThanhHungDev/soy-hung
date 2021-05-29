@@ -62,7 +62,8 @@ var CONFIG = {
     },
     API: {
         domain_ahaquiz: 'https://img.ahaquiz.me',
-        ahaquiz: 'https://img.ahaquiz.me/1_@a2pi_1/vi/home1.json'
+        ahaquiz: 'https://img.ahaquiz.me/1_@a2pi_1/vi/home1.json',
+        ahaquiz_answer : "https://img.ahaquiz.me/1_@a2pi_1/vi/data"
     }
 }
 module.exports = CONFIG;

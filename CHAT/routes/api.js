@@ -56,6 +56,8 @@ let initAPIs = app => {
     router.get("/crawler/ahaquiz", CrawlerController.crawlerAhaquiz )
     router.get("/crawler/questions/image", CrawlerController.cloneImage )
     router.get("/questions", QuestionController.questions )
+    router.get("/crawler/answers", CrawlerController.crawlerAnswer )
+    router.get("/crawler/answers/update", CrawlerController.updateCrawlerAnswer )
     
 
     router.use( AuthMiddleWare.isAuth )
