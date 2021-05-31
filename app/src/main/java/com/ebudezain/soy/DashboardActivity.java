@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.ebudezain.soy.Activity.BotNaviActivity;
+import com.ebudezain.soy.Activity.FragmentActivity;
 import com.ebudezain.soy.Activity.OnlyViewPagerActivity;
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,6 +27,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     CardView btnBottomNavi = null;
     CardView btnViewPager = null;
     CardView btnFragmentViewpager = null;
+    CardView btnGotoFragment = null;
 
 //    fragmentViewpager
 
@@ -55,6 +57,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         btnViewPager.setOnClickListener(this);
         btnFragmentViewpager = (CardView) findViewById(R.id.fragmentViewpager);
         btnFragmentViewpager.setOnClickListener(this);
+        btnGotoFragment = (CardView) findViewById(R.id.btnGotoFragment);
+        btnGotoFragment.setOnClickListener(this);
 
     }
 
@@ -90,6 +94,11 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             }
             case R.id.fragmentViewpager: {
                 Intent intent = new Intent(DashboardActivity.this, OnlyViewPagerActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnGotoFragment: {
+                Intent intent = new Intent(DashboardActivity.this, FragmentActivity.class);
                 startActivity(intent);
                 break;
             }

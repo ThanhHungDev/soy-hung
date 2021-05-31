@@ -1,0 +1,60 @@
+
+
+GET /api/v1/crawler/answers  HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+################################
+
+
+
+
+
+
+GET /api/v1/crawler/answers/update HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+################################
+
+
+
+
+GET /api/v1/answer/85307  HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+################################
+
+
+
+
+
+GET /api/v1/answer/60b116315e44c51c8c2ae525  HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+################################
+
+
+
+
+
+
+GET /api/v1/answer/60b116315e44c51c8c2ae531  HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+################################
+
+
+
+
+GET /api/v1/crawler/answers/image/update  HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+################################
+
+
+

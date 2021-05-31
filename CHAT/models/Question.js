@@ -75,4 +75,43 @@ QuestionSchema.methods.toResources = function() {
     }
 }
 
+
+QuestionSchema.statics.getQuestionsImage = function(img){
+    
+    return this
+    .find({ image: { $regex: '.*' + img + '.*' } })
+}
+
+
+
+
+QuestionSchema.statics.getQuestionsUnisex = function(){
+    
+    return this
+    .aggregate([
+        {
+            $lookup: {
+                from: 'answers',
+                localField: "_id",
+                foreignField: "question",
+                as: "answers"
+            }
+        },
+        { $match: { "answers.0": { "$exists": true } } },
+        { $match: { "answers.unisex": { $eq: "1" } } },
+        { $limit : 10 },
+        { 
+            $project: { 
+                _id      : 1,
+                name     : 1,
+                image    : 1,
+                iden     : 1,
+                createdAt: 1,
+                updatedAt: 1,
+            }
+        }
+    ])
+}
+
+
 module.exports = mongoose.model("question", QuestionSchema)

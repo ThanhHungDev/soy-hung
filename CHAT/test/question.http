@@ -4,3 +4,11 @@ Host: localhost:8081
 content-type: application/json
 
 ################################
+
+
+
+GET /api/v1/update/questions/image  HTTP/1.1
+Host: localhost:8081
+content-type: application/json
+
+################################

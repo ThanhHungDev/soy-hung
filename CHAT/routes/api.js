@@ -18,7 +18,8 @@ const AuthController     = require("../controllers/AuthController"),
       ImageController    = require("../controllers/ImageController"),
       FileController     = require("../controllers/FileController"),
       CrawlerController  = require("../controllers/CrawlerController"),
-      QuestionController  = require("../controllers/QuestionController")
+      QuestionController = require("../controllers/QuestionController"),
+      AnswerController   = require("../controllers/AnswerController")
 
 /**
  * Init all APIs on your application
@@ -55,10 +56,18 @@ let initAPIs = app => {
     router.get("/users/nologin", UserController.users )
     router.get("/crawler/ahaquiz", CrawlerController.crawlerAhaquiz )
     router.get("/crawler/questions/image", CrawlerController.cloneImage )
-    router.get("/questions", QuestionController.questions )
+    router.get("/update/questions/image", CrawlerController.updateQuestionImage )
+    
     router.get("/crawler/answers", CrawlerController.crawlerAnswer )
     router.get("/crawler/answers/update", CrawlerController.updateCrawlerAnswer )
+    router.get("/crawler/answers/image/update", CrawlerController.updateUpdateImageAnswer )
     
+    
+
+
+
+    router.get("/questions", QuestionController.questions )
+    router.get("/answer/:id", AnswerController.answer )
 
     router.use( AuthMiddleWare.isAuth )
     // List Protect APIs:

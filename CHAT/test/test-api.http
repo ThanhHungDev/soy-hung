@@ -32,20 +32,3 @@ content-type: application/json
 ################################
 
 
-
-GET /api/v1/crawler/answers  HTTP/1.1
-Host: localhost:8081
-content-type: application/json
-
-################################
-
-
-
-
-
-
-GET /api/v1/crawler/answers/update HTTP/1.1
-Host: localhost:8081
-content-type: application/json
-
-################################

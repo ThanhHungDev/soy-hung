@@ -1,21 +1,24 @@
 const fetch    = require("node-fetch"),
       fs       = require('fs'),
+      mongoose = require('mongoose'),
       CONFIG   = require("../config"),
-      Question = require("../models/Question")
+      Question = require("../models/Question"),
+      Answer         = require("../models/Answer")
 
 
-
-let questions = async (req, res) => {
+let answer = async (req, res) => {
     
+    let { id } = req.params
+
     let response = {},
         code     = 500
 
     try {
 
-        let questions = await Question.getQuestionsUnisex()
-        /// response 
+        let answer = await Answer.findOne({ _id: mongoose.Types.ObjectId(id)} )
+
         response.code             = 200
-        response.data             = questions
+        response.data             = answer.toResources()
         response.message          = "save data"
         response.internal_message = "save data successful"
         return res.status(response.code).json(response)
@@ -33,5 +36,5 @@ let questions = async (req, res) => {
 
 
 module.exports = {
-    questions,
+    answer,
 }

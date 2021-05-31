@@ -323,11 +323,95 @@ let updateCrawlerAnswer = async (req, res) => {
     }
 }
 
+let updateQuestionImage = async (req, res) => {
+
+    let response = {},
+        code     = 500
+
+    try {
+        /// question image not true
+        let questions = await Question.find({ })
+        let promiseQuestion = questions.map( item => {
+            if(item.image.indexOf("/images") != -1 ){
+                return null;
+            }
+            item.image = "/images/" + item.image
+            return item.save()
+        })
+        let dataQuesions = await Promise.all(promiseQuestion)
+        let datas = dataQuesions.map( item => item.toResources() )
+
+        response.code             = 200
+        response.data             = datas
+        response.message          = "update image question"
+        response.internal_message = "update image question"
+        return res.status(response.code).json(response)
+
+    } catch (error) {
+
+        let err = { error: 'error', message: error.message }
+        response.code             = code || 500
+        response.message          = error.message
+        response.internal_message = error.message
+        response.errors           = [ err ]
+        return res.status(response.code).json(response)
+    }
+}
+
+
+let updateUpdateImageAnswer = async (req, res) => {
+
+    let response = {},
+        code     = 500
+
+    try {
+        /// question image not true
+        let answers = await Answer.find({ })
+        let promiseAnswer = answers.map( item => {
+            if(item.image && item.image.indexOf("/images") == -1 ){
+                item.image = "/images/" + item.image
+            }
+            
+            //// update réult
+            if( parseInt(item.unisex) ){
+                /// have réult unise
+                item.result_unisex.map(uni => {
+                    if(uni.image && uni.image.indexOf("/images") == -1 ){
+                        uni.image = "/images/" + uni.image
+                    }
+                })
+            }
+            return item.save()
+        })
+        let dataAnswers = await Promise.all(promiseAnswer)
+        let datas = dataAnswers.map( item => item.toResources() )
+
+        response.code             = 200
+        response.data             = datas
+        response.message          = "update image question"
+        response.internal_message = "update image question"
+        return res.status(response.code).json(response)
+
+    } catch (error) {
+
+        let err = { error: 'error', message: error.message }
+        response.code             = code || 500
+        response.message          = error.message
+        response.internal_message = error.message
+        response.errors           = [ err ]
+        return res.status(response.code).json(response)
+    }
+}
+
+
+
 module.exports = {
     crawlerAhaquiz,
     cloneImage,
     crawlerAnswer,
     updateCrawlerAnswer,
+    updateQuestionImage,
+    updateUpdateImageAnswer,
 }
 
 
