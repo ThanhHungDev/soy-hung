@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.ebudezain.soy.Fragment.HomeMypageFragment;
+import com.ebudezain.soy.Fragment.QuestionGameFragment;
 import com.ebudezain.soy.R;
 
 public class FragmentActivity extends AppCompatActivity {
@@ -17,9 +18,10 @@ public class FragmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.add( R.layout.fragment_home_mypage ,new HomeMypageFragment());
-//        fragmentTransaction.commit();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        QuestionGameFragment questionGame = new QuestionGameFragment();
+        fragmentTransaction.add( R.id.layoutContainFragment ,questionGame);
+        fragmentTransaction.commit();
     }
 }

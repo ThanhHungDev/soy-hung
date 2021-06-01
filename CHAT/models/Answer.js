@@ -2,8 +2,8 @@ const CONFIG = require('../config'),
       i18n   = require("i18n")
 
 const mongoose = require('mongoose'),
-      Schema   = mongoose.Schema,
-      { createCanvas, loadImage } = require('canvas')
+      Schema   = mongoose.Schema
+    //   { createCanvas, loadImage } = require('canvas')
 
 const AnswerSchema = new Schema(
     {
